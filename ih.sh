@@ -7,3 +7,4 @@ for (( i=1; i<=$#; i++)); do
     
 done
 
+echo "All holidays created in ${ics_file}."
