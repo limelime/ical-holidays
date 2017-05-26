@@ -1,10 +1,9 @@
-event_date=$1
-event_title=$2
-
-ics_file=ical-event_date.ics
+output_ics_file=$1
+event_date=$2
+event_title=$3
 
 sequence=$(date +%s)
-cat >> ${ics_file} <<EOF
+cat >> ${output_ics_file} <<EOF
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//Manual//NONSGML My Product//EN

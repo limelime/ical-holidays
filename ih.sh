@@ -1,8 +1,8 @@
 input_file=$1
 
 # Output file.
-  ics_file=ical-event_date.ics
-  > ${ics_file}
+  output_ics_file="${input_file}.ics"
+  > ${output_ics_file}
 
 # Create icalendar file.
   while IFS='' read -r file_line || [[ -n "${file_line}" ]]; do
@@ -15,8 +15,8 @@ input_file=$1
       event_title=''
     fi
     
-    ./ih-create-ics.sh "${event_date}" "${event_title}"
+    ./ih-create-ics.sh "${output_ics_file}" "${event_date}" "${event_title}"
    
   done < <( cat ${input_file} | grep -v "^#"  | awk NF) # Ignore comment line | Remove empty line
 
-echo "All holidays created in ${ics_file}."
+echo "All holidays created in ${output_ics_file}."
